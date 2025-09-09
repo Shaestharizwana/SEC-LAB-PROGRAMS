@@ -2,24 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Task 1: Reverse Words</title>
+  <title>Task 2: Remove Duplicates</title>
 </head>
 <body>
-  <h2>Task 1: Reverse Words in a Sentence</h2>
+  <h2>Task 2: Remove Duplicates from Array</h2>
   
-  <input type="text" id="sentence" placeholder="Enter a sentence">
-  <button onclick="reverseWords()">Reverse</button>
+  <input type="text" id="arrayInput" placeholder="Enter numbers e.g. 1,2,2,3,4">
+  <button onclick="removeDuplicates()">Remove</button>
   
   <p id="result"></p>
 
   <script>
-    function reverseWords() {
-      let sentence = document.getElementById("sentence").value;
-      let reversed = sentence
-        .split(" ") 
-        .map(word => word.split("").reverse().join("")) 
-        .join(" ");
-      document.getElementById("result").innerText = reversed;
+    function removeDuplicates() {
+      let input = document.getElementById("arrayInput").value;
+      let arr = input.split(",").map(Number); 
+      let unique = [...new Set(arr)];
+      document.getElementById("result").innerText = "Unique Array: [" + unique.join(", ") + "]";
     }
   </script>
 </body>
