@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Count Vowels</title>
+  <title>Add & Subtract</title>
 </head>
 <body>
+  <h2>Addition and Subtraction</h2>
+
+  Number 1: <input type="text" id="num1"><br><br>
+  Number 2: <input type="text" id="num2"><br><br>
+
+  <button onclick="calculate()">Calculate</button>
+
+  <p id="add"></p>
+  <p id="sub"></p>
+
   <script>
-    function countVowels(str) {
-      let vowels = "aeiouAEIOU";
-      let count = 0;
+    function calculate() {
+      var a = parseInt(document.getElementById("num1").value);
+      var b = parseInt(document.getElementById("num2").value);
 
-      for (let char of str) {
-        if (vowels.includes(char)) {
-          count++;
-        }
-      }
-      return count;
+      document.getElementById("add").innerHTML = "Addition: " + (a + b);
+      document.getElementById("sub").innerHTML = "Subtraction: " + (a - b);
     }
-
-    let input = "Hello World";
-    let output = countVowels(input);
-
-    console.log(output); 
   </script>
 </body>
 </html>
