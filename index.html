@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Add & Subtract</title>
+  <title>Email Validation</title>
 </head>
 <body>
-  <h2>Addition and Subtraction</h2>
-
-  Number 1: <input type="text" id="num1"><br><br>
-  Number 2: <input type="text" id="num2"><br><br>
-
-  <button onclick="calculate()">Calculate</button>
-
-  <p id="add"></p>
-  <p id="sub"></p>
+  <h3>Enter Email:</h3>
+  <input type="text" id="email">
+  <button onclick="validateEmail()">Check</button>
+  <p id="result"></p>
 
   <script>
-    function calculate() {
-      var a = parseInt(document.getElementById("num1").value);
-      var b = parseInt(document.getElementById("num2").value);
+    function validateEmail() {
+      let email = document.getElementById("email").value;
+      let pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
 
-      document.getElementById("add").innerHTML = "Addition: " + (a + b);
-      document.getElementById("sub").innerHTML = "Subtraction: " + (a - b);
+      if (pattern.test(email)) {
+        document.getElementById("result").innerText = email + " is valid.";
+      } else {
+        document.getElementById("result").innerText = 
+          email + " is invalid (Invalid email format).";
+      }
     }
   </script>
 </body>
