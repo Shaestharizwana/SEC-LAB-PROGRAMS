@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Add & Subtract</title>
+  <title>Password Validation</title>
 </head>
 <body>
-  <h2>Addition and Subtraction</h2>
-
-  Number 1: <input type="text" id="num1"><br><br>
-  Number 2: <input type="text" id="num2"><br><br>
-
-  <button onclick="calculate()">Calculate</button>
-
-  <p id="add"></p>
-  <p id="sub"></p>
+  <h3>Enter Password:</h3>
+  <input type="password" id="password">
+  <button onclick="validatePassword()">Check</button>
+  <p id="result"></p>
 
   <script>
-    function calculate() {
-      var a = parseInt(document.getElementById("num1").value);
-      var b = parseInt(document.getElementById("num2").value);
+    function validatePassword() {
+      let pwd = document.getElementById("password").value;
+      let pattern = /^(?=.*[A-Z])(?=.*\d).{8,}$/; 
 
-      document.getElementById("add").innerHTML = "Addition: " + (a + b);
-      document.getElementById("sub").innerHTML = "Subtraction: " + (a - b);
+      if (pattern.test(pwd)) {
+        document.getElementById("result").innerText = "Password is valid ";
+      } else {
+        document.getElementById("result").innerText =
+          "Password is invalid  (must be 8+ chars, include uppercase & number)";
+      }
     }
   </script>
 </body>
